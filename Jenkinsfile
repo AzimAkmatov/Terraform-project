@@ -5,6 +5,7 @@ pipeline {
     environment {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+        CREDENTIALS_ID = credentials('GitHub')
     }
 
     agent {
@@ -19,7 +20,7 @@ pipeline {
         stage('checkout') {
             steps {
                 script {
-                    git branch: 'main', credentialsId: 'GitHub', url: 'https://github.com/AzimAkmatov/Terraform-project.git'
+                    git branch: 'main', CREDENTIALS_ID: 'GitHub', url: 'https://github.com/AzimAkmatov/Terraform-project.git'
                 }
             }
         }
