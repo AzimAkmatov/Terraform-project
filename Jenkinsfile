@@ -51,7 +51,7 @@ pipeline {
 
         stage('Apply') {
             steps {
-                sh "terraform apply -input=false tfplan"
+                sh "terraform apply -auto-approve"
             }
         }
 
